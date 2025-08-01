@@ -87,7 +87,7 @@ function playSequence() {
             clearInterval(interval);   // End sequence playback
             acceptingInput = true;     // Allow user input again
         }
-    }, 600); // Time between flashes
+    }, 550); // Time between flashes
 }
 
 // Function to go to the next level
