@@ -186,3 +186,13 @@ function reset() {
 }
 
 
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (event) {
+    let now = new Date().getTime();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault(); // Block double-tap zoom
+    }
+    lastTouchEnd = now;
+}, false);
+
+
