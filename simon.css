@@ -229,4 +229,12 @@ h2 {
 }
 
 
+html, body {
+    touch-action: manipulation; /* Disables zoom and scroll gestures */
+    -ms-touch-action: manipulation;
+    -webkit-user-select: none; /* Prevents text selection */
+    user-select: none;
+}
+
+
 
