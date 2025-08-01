@@ -1,0 +1,232 @@
+/* Global Reset and Fonts */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    text-align: center;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 1rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+/* Title Styling */
+h1 {
+    font-size: 3vw;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+h2 {
+    font-size: 1.5vw;
+    margin-bottom: 1rem;
+    color: #f1f1f1;
+    transition: all 0.3s ease;
+}
+
+/* Scoreboard */
+#score-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+#high-score {
+    font-weight: bold;
+    color: #f9ca24;
+}
+
+#sound-toggle {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ffffff33;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#sound-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Button Container */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* Game Buttons */
+.btn {
+    height: 15vw;
+    width: 15vw;
+    min-width: 80px;
+    min-height: 80px;
+    max-width: 180px;
+    max-height: 180px;
+    border-radius: 25%;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 0.5rem;
+}
+
+/* Glass-like effect */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+/* Colors */
+.yellow {
+    background: radial-gradient(circle, #f9ca24 0%, #d4ac0d 100%);
+}
+.red {
+    background: radial-gradient(circle, #eb4d4b 0%, #c0392b 100%);
+}
+.green {
+    background: radial-gradient(circle, #6ab04c 0%, #27ae60 100%);
+}
+.purple {
+    background: radial-gradient(circle, #686de0 0%, #4834d4 100%);
+}
+
+/* Flash effect */
+.flash {
+    animation: flashAnim 0.2s ease;
+}
+@keyframes flashAnim {
+    0% {
+        filter: brightness(2) drop-shadow(0 0 15px white);
+    }
+    100% {
+        filter: none;
+    }
+}
+
+/* Button press effect */
+.btn:active,
+.btn.pressed {
+    transform: scale(0.95);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+/* Level-up glow */
+.level-up-effect {
+    animation: glow 1s ease;
+}
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #fff;
+    }
+    50% {
+        text-shadow: 0 0 25px #f9ca24, 0 0 35px #f9ca24;
+    }
+    100% {
+        text-shadow: none;
+    }
+}
+
+/* Game over effect */
+.game-over {
+    background-color: #ff4757 !important;
+    transition: background-color 0.4s ease;
+}
+
+/* Responsive overrides for small screens */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .btn-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem; /* Reduce space between buttons */
+        padding: 0;
+        margin-top: 0.5rem;
+    }
+
+    .btn {
+        width: 40vw;
+        height: 40vw;
+        min-width: 0;
+        min-height: 0;
+        margin: 0; /* Remove default margin */
+    }
+
+    #score-board {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #sound-toggle {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    #start-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.9rem;
+        margin-top: 1rem;
+    }
+}
+
+
+#start-btn {
+    display: block;
+    margin: 1.5rem auto; /* Center horizontally */
+    padding: 0.4rem 1rem; /* Smaller size */
+    font-size: 1rem;
+    background-color: #f1c40f;
+    color: #2c3e50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(241, 196, 15, 0.4);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#start-btn:hover {
+    background-color: #f39c12;
+    transform: scale(1.05);
+}
+
+
+
